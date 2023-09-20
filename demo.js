@@ -21,7 +21,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/assets',express.static(__dirname + '/public'));
 
-app.use('/', express.static(path.join(__dirname)))
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -38,6 +37,9 @@ app.use(session({
 }));
 
 app.use(express.static("/app/static-files"));
+
+
+app.use('/', express.static(path.join(__dirname)))
 
 
 app.get('/', function (req, res) 
