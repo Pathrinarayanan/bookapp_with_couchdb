@@ -1,0 +1,184 @@
+<html lang="en">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Load More</title>
+  <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+  <!-- swiper css link  -->
+   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+       <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 24px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+  
+
+</style>
+</head>
+<body>
+  <section class="header">
+
+    <a href="home.html" class="logo"><b>booky point</b></a>
+
+   <nav class="navbar">
+      <a href="home2.html">home</a>
+      <a href="about.html">about</a>
+      
+      <a href="book.html">buy</a>
+      <a href="home1.html">logout</a>
+   </nav>
+
+   <div id="menu-btn" class="fas fa-bars"></div>
+
+  </section>
+
+<br>
+
+<form class="example" action="" style="margin:auto;max-width:900px">
+  <input type="text" placeholder="Search.." name="book_name">  
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+
+</body>
+
+  <div class="container">
+    <h2>Book List</h2>
+    <table class="table table-striped" id="mytable">
+      <thead>
+        <tr>
+          <th>Book ID</th>
+          <th>Book Name</th>
+          <th>Price</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+         {{#each results}}
+        <tr>
+          <td><a href="../book.html">{{ product_id }}</a></td>
+          <td>{{ product_name }}</td>
+          <td>{{ product_price }}</td>
+         
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+  <section class="footer">
+
+   <div class="box-container">
+
+      <div class="box">
+         <h3>quick links</h3>
+         <a href="home2.html">  home</a>
+         <a href="about.html">  about</a>
+         <!--<a href="package.html"> <i class="fas fa-angle-right"></i> package</a> -->
+         <a href="book.html">  buy</a>
+      </div>
+
+      <div class="box">
+         <h3>extra links</h3>
+         <a href="#">  ask questions</a>
+         <a href="#">  about us</a>
+         <a href="#">  privacy policy</a>
+         <a href="#">  terms of use</a>
+      </div>
+
+      <div class="box">
+         <h3>contact info</h3>
+         <a href="#">  +123-456-7890 </a>
+         <a href="#">  +111-222-3333 </a>
+         <a href="#">  sankarmr@gmail.com </a>
+         <a href="#">  chennai, india - 600100 </a>
+      </div>
+
+      <div class="box">
+         <h3>follow us</h3>
+         <a href="#">  facebook </a>
+         <a href="#">  twitter </a>
+         <a href="#">  instagram </a>
+         <a href="#">  linkedin </a>
+      </div>
+
+   </div>
+
+   <!--<div class="credit"> created by <span>mr.sankar</span> | all rights reserved! </div> -->
+
+</section>
+
+
+
+<script src="/assets/js/jquery-3.3.1.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<script>
+    $(document).ready(function(){
+			//showing data to modal for edit record
+      $('#mytable').on('click','.edit',function(){
+        var product_id = $(this).data('id');
+        var product_name = $(this).data('product_name');
+        var product_price = $(this).data('product_price');
+        $('#EditModal').modal('show');
+        $('.product_name').val(product_name);
+        $('.price').val(product_price);
+        $('.product_id').val(product_id);
+      });
+			//showing modal for delete record
+			$('#mytable').on('click','.delete',function(){
+        var product_id = $(this).data('id');
+        $('#DeleteModal').modal('show');
+        $('.product_id2').val(product_id);
+      });
+
+    });
+</script>
+</body>
+</html>

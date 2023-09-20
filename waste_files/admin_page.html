@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./adminstyles.css">
+        <title>Register</title>
+    </head>
+  <body></body>
+</html>
+
+<form action="adminpage" method="POST">
+      <!-- class named "container" is assigned to div -->
+      <div class="container">
+        <h1>Admin Page</h1>
+        <label for="bookname"><b>Book Name</b></label>
+        <input
+          type="text"
+          placeholder="Enter BookName"
+          name="product_name"
+        />
+
+        <label for="author"><b>Author</b></label>
+        <input
+          type="text"
+          placeholder="Enter Authorname"
+          name="product_author"
+        />
+
+        <label for="price"><b>Price</b></label>
+        <input
+          type="text"
+          placeholder="Enter Price"
+          name="product_price"
+        />
+        
+        <div class = "inner">
+            &nbsp&nbsp&nbsp<button type="submit" name="query" value="insert">Insert</button>
+            <button type="submit" name="query" value="update">Update</button>
+            <button type="submit" name="query" value="delete">Delete</button>
+        </div>
+        <br>
+        <div class="back">
+            <button class = "but1" type="submit" name="query" value="back">Back</button>
+        </div>
+
+      </div>
+
+</form>
