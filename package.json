@@ -1,10 +1,10 @@
 {
   "name": "node-auth",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "demo.js",
   "license": "Unlicense",
   "scripts": {
-  "start": "node server.js", 
+  "start": "node demo.js", 
   "test": "(eslint lib || true) && jest"
 },
   "dependencies": {
