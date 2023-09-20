@@ -21,6 +21,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/assets',express.static(__dirname + '/public'));
 
+app.use('/', express.static(path.join(__dirname)))
+
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -54,7 +56,7 @@ app.get('/product_view', function (req, res) {
     } else {
       // Pass the list of documents to the EJS page as a variable
       console.log(data);
-      res.render('product_view.hbs', { results: data.rows});
+      res.render('views/product_view.hbs', { results: data.rows});
     }
   });
 });
@@ -68,12 +70,10 @@ app.get('/product_view_cust', function (req, res) {
     } else {
       // Pass the list of documents to the EJS page as a variable
       console.log(data);
-      res.render('product_view', { results: data });
+      res.render('views/product_view', { results: data });
     }
   });
 });
-
-
 
 //route for insert data
 app.post('/save',(req, res) => {
@@ -158,7 +158,7 @@ console.log(req.body.id);
       console.error(err);
     } else {
  console.log(data);
-      res.render('editdata', { results: data });
+      res.render('view/editdata.hbs', { results: data });
     }
   });
 
@@ -233,7 +233,7 @@ app.post('/login', encoder,function(req, res) {
 app.post('/adminlogin', encoder, function(req, res){
   var adminName =  req.body.adminname;
   var password = req.body.password;
-  if(adminName == "bashar" && password == "sankar"){
+  if(adminName == "admin" && password == "password"){
     res.redirect('/product_view');
   }
   else{
@@ -302,6 +302,6 @@ app.post('/search',encoder, function(req, res){
 });*/
 
 
-app.listen(9000, () => {
-  console.log('Server is running at port 8000');
+app.listen(5000, () => {
+  console.log('Server is running at port 5000');
 });
